@@ -16,10 +16,7 @@ import AdminLayout from './pages/layouts/AdminLayout';
 import ProductAdd from './pages/productadd';
 import ProductEdit from './pages/ProductEdit';
 import product from './pages/Product'
-import ProductDetail from './pages/productdetail'
 // import { ConfigProvider } from 'antd';
-
-
 // import Signup from './pages/Signup';
 // import Signin from './pages/Signin';
 
@@ -45,7 +42,7 @@ function App() {
   }
 
   const onHandleAdd = async (product: ProductType) => {
-    // call api
+    // call apij
     const { data } = await add(product);
     setProducts([...products, data])
   }
@@ -58,11 +55,12 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<WebsiteLayout />}>
-          <Route path="detail">
-            <Route path=":id/products" element={<ProductDetail products={products} />} />
+        <Route path="product">
+          <Route path=":id/edit" element={<ProductEdit onUpdate={onHandleUpdate} />} />
           </Route>
           <Route index element={<Home products={products} />} />
-          <Route path="product" element={<Product products={products} />} />
+
+          {/* <Route path="product" element={<Product products={products} />} /> */}
 
         </Route>
         <Route path="admin" element={<><AdminLayout /></>}>
