@@ -16,6 +16,8 @@ type Show = {
 }
 const productDetail = (props: ProductDetailProps) => {
     const { id } = useParams();
+    console.log(id);
+    
     const { register, formState: { errors }, reset } = useForm<Show>();
     useEffect(() => {
         const getProduct = async () => {

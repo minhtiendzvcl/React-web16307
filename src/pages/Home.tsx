@@ -41,7 +41,7 @@ const Home = (props: HomeProductProps) => {
                         <a className="primary_img" href="product-details.html"><img src={product} /></a>
                         <a className="secondary_img" href="product-details.html"><img src="src/img/product/product16.jpg"  /></a>
                         <div className="quick_button">
-                          <a href="" title="quick_view"><Link to={`/detail/${product.id}/products`}>Xem sp</Link></a>
+                          <a href="" title="quick_view"><Link to={`/products/${item._id}`}>Xem sp</Link></a>
                         </div>
                         <div className="quick_button">
                           <a href="product-details.html" title="quick_view"></a>
