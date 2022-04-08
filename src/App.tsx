@@ -15,6 +15,8 @@ import AdminLayout from './pages/layouts/AdminLayout';
 
 import ProductAdd from './pages/productadd';
 import ProductEdit from './pages/ProductEdit';
+import product from './pages/Product'
+import ProductDetail from './pages/productdetail'
 // import { ConfigProvider } from 'antd';
 
 
@@ -26,14 +28,14 @@ import ProductEdit from './pages/ProductEdit';
 function App() {
   const [products, setProducts] = useState<ProductType[]>([]); // 1
   // const [count, setCount] = useState<number>(0);
-  
+
   useEffect(() => { // 3
-     const getProducts = async () => {
-        const { data } = await list();
-        setProducts(data);
-     }
-     getProducts();
-  },[])
+    const getProducts = async () => {
+      const { data } = await list();
+      setProducts(data);
+    }
+    getProducts();
+  }, [])
 
   const onHandleRemove = async (id: number) => {
     // xoa tren API
@@ -44,33 +46,36 @@ function App() {
 
   const onHandleAdd = async (product: ProductType) => {
     // call api
-    const { data} = await add(product);
+    const { data } = await add(product);
     setProducts([...products, data])
   }
-  const onHandleUpdate = async (product:ProductType) => {
-      console.log(product);
-     const { data } = await update(product)
-     setProducts(products.map(item => item.id == data.id ? data : item));
+  const onHandleUpdate = async (product: ProductType) => {
+    console.log(product);
+    const { data } = await update(product)
+    setProducts(products.map(item => item.id == data.id ? data : item));
   }
-  return ( 
+  return (
     <>
-    <Routes>
-      <Route path="/" element={<WebsiteLayout />}>
-          <Route index element={<Home data={products} />} />
-          <Route path="product" element={<Product />} />
-         
-      </Route>
-      <Route path="admin" element={<><AdminLayout /></>}> 
-        <Route index element={<Navigate to="dashboard"/>} />
-        <Route path="dashboard" element={<Dashboard />} />
-        <Route path="product">
-          <Route index element={<ManagerProduct data={products} onRemove={onHandleRemove}/>} />
-          <Route path="add" element={<ProductAdd onAdd={onHandleAdd}/>} />
-          <Route path=":id/edit" element={<ProductEdit onUpdate={onHandleUpdate}/>} />
+      <Routes>
+        <Route path="/" element={<WebsiteLayout />}>
+          <Route path="detail">
+            <Route path=":id/products" element={<ProductDetail products={products} />} />
+          </Route>
+          <Route index element={<Home products={products} />} />
+          <Route path="product" element={<Product products={products} />} />
+
         </Route>
-      </Route>
-      
-    </Routes>
+        <Route path="admin" element={<><AdminLayout /></>}>
+          <Route index element={<Navigate to="dashboard" />} />
+          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="product">
+            <Route index element={<ManagerProduct data={products} onRemove={onHandleRemove} />} />
+            <Route path="add" element={<ProductAdd onAdd={onHandleAdd} />} />
+            <Route path=":id/edit" element={<ProductEdit onUpdate={onHandleUpdate} />} />
+          </Route>
+        </Route>
+
+      </Routes>
     </>
   )
 }

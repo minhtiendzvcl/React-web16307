@@ -2,10 +2,10 @@ import React from 'react'
 import { ProductType } from '../types/product'
 import  product from '../assets/img/product/product1.jpg'
 import Footer from '../components/Footer'
+import { Link } from 'react-router-dom'
 
 type HomeProductProps ={
-  data : ProductType [],
-  onRemove :(id : number) => void
+  products : ProductType [],
 
 }
 
@@ -33,13 +33,16 @@ const Home = (props: HomeProductProps) => {
               </div>
             </div>
             <div className="row shop_wrapper">
-            {props.data && props.data.map((item ) => {
+            {props.products && props.products.map((item ) => {
                 return <>
                   <div className="col-lg-4 col-md-4 col-12 ">
                     <div className="single_product">
                       <div className="product_thumb">
                         <a className="primary_img" href="product-details.html"><img src={product} /></a>
-                        <a className="secondary_img" href="product-details.html"><img src="src/img/product/product16.jpg" /></a>
+                        <a className="secondary_img" href="product-details.html"><img src="src/img/product/product16.jpg"  /></a>
+                        <div className="quick_button">
+                          <a href="" title="quick_view"><Link to={`/detail/${product.id}/products`}>Xem sp</Link></a>
+                        </div>
                         <div className="quick_button">
                           <a href="product-details.html" title="quick_view"></a>
                         </div>
