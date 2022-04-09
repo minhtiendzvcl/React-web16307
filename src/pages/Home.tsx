@@ -1,6 +1,6 @@
 import React from 'react'
 import { ProductType } from '../types/product'
-import  product from '../assets/img/product/product1.jpg'
+import  producta from '../assets/img/product/product1.jpg'
 import Footer from '../components/Footer'
 import { Link } from 'react-router-dom'
 
@@ -33,15 +33,15 @@ const Home = (props: HomeProductProps) => {
               </div>
             </div>
             <div className="row shop_wrapper">
-            {props.products && props.products.map((item ) => {
+            {props.products && props.products.map((product ) => {
                 return <>
                   <div className="col-lg-4 col-md-4 col-12 ">
                     <div className="single_product">
                       <div className="product_thumb">
-                        <a className="primary_img" href="product-details.html"><img src={product} /></a>
+                        <a className="primary_img" href="product-details.html"><img src={producta} /></a>
                         <a className="secondary_img" href="product-details.html"><img src="src/img/product/product16.jpg"  /></a>
                         <div className="quick_button">
-                          <a href="" title="quick_view"><Link to={`/products/${item._id}`}>Xem sp</Link></a>
+                          <a href="" title="quick_view"> <Link to={`/detail/${product.id}/edit`}>xem sp</Link></a>
                         </div>
                         <div className="quick_button">
                           <a href="product-details.html" title="quick_view"></a>
@@ -57,9 +57,9 @@ const Home = (props: HomeProductProps) => {
                       </div>
                       <div className="product_content grid_content">
                         <h3>
-                          {item.name}
+                          {product.name}
                         </h3>
-                        <span className="current_price">{item.price}</span>
+                        <span className="current_price">{product.price}</span>
                       </div>
                       <div className="product_content list_content">
                         <div className="product_ratting">

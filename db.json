@@ -1,29 +1,19 @@
 {
   "products": [
     {
-      "id": 1,
-      "name": "Product A updated3333",
-      "price": "500444333"
-    },
-    {
-      "id": 2,
-      "name": "Product A updated3333",
-      "price": "500444333"
-    },
-    {
-      "id": 3,
-      "name": "Product A updated3333",
-      "price": "500444333"
-    },
-    {
-      "name": "tien1111",
+      "name": "tien1ggg",
       "price": "12233333",
       "id": 4
     },
     {
-      "name": "TIEENNNN",
+      "name": "ducvippp6666",
       "price": "666666",
       "id": 5
+    },
+    {
+      "name": "vanhhhhhh",
+      "price": "666666",
+      "id": 6
     }
   ]
 }
