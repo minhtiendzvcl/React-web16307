@@ -36,6 +36,5 @@ const ManagerProduct = (props: ManagerProductProps) => {
         </table>
     </div>
 }
-
 export default ManagerProduct
 

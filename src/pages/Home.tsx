@@ -8,9 +8,6 @@ type HomeProductProps ={
   products : ProductType [],
 
 }
-
-
-
 const Home = (props: HomeProductProps) => {
   return (
     <>
@@ -114,12 +111,8 @@ const Home = (props: HomeProductProps) => {
             </div>
           </div>
         </section>
-       
-
-
       </div>
       <Footer/>
-
     </>
   )
 }

@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios';
 import logo from './logo.svg'
-
 import ShowInfo from './components/ShowInfo'
 import type { ProductType } from './types/product';
 import { add, list, remove, update } from './api/product';
